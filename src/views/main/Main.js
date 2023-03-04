@@ -37,9 +37,7 @@ const Main = () => {
     const croppedData = await cropPicture(base64Image, 300);
     const model = await getModel();
     const tensor = await convertBase64ToTensor(croppedData.base64);
-
     const prediction = await startPrediction(model, tensor);
-
     const highestPrediction = prediction.indexOf(
       Math.max.apply(null, prediction),
     );
